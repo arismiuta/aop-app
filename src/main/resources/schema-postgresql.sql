@@ -1,0 +1,21 @@
+DROP TABLE IF EXISTS managers;
+DROP TABLE IF EXISTS notes;
+DROP TABLE IF EXISTS customers;
+
+CREATE TABLE  customers (
+  CUST_ID Bigserial  PRIMARY KEY NOT NULL,
+  NAME varchar(100) NOT NULL,
+  AGE smallint NOT NULL
+);
+
+CREATE TABLE notes (
+  NOTE_ID Bigserial PRIMARY KEY NOT NULL,
+  CUST_ID Bigserial REFERENCES customers(CUST_ID),
+  DATE DATE,
+  TIME TIME,
+  TEXT VARCHAR(200)
+);
+
+CREATE TABLE managers (
+  MANAGER_ID Bigserial PRIMARY KEY NOT NULL
+);
