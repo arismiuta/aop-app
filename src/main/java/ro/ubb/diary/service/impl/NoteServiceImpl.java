@@ -16,28 +16,22 @@ import java.util.List;
 @Service
 public class NoteServiceImpl extends Subject implements NoteService{
 
-
-	Logger logger = LoggerFactory.getLogger(NoteServiceImpl.class);
-
 	@Autowired
 	NoteDao noteDao;
 	
 	@Override
 	public void insert(Note note) {
-		logger.info("Calling insert on noteDao");
 		noteDao.insert(note);
 		super.notifyAllObservers();
 	}
 
 	public List<Note> loadAllNotes(){
-		logger.info("Calling loadAllNotes on noteDao");
 		List<Note> listCust = noteDao.loadAllNotes();
 		return listCust;
 	}
 
 
 	public void register(Observer obs) {
-		logger.info("Register " + obs);
 		super.register(obs);
 	}
 

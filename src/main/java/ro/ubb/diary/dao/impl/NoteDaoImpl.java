@@ -25,9 +25,6 @@ import java.util.Map;
 public class NoteDaoImpl extends JdbcDaoSupport implements NoteDao {
 
 
-	Logger logger = LoggerFactory.getLogger(NoteDaoImpl.class);
-
-
 	@Autowired
 	DataSource dataSource;
 	
@@ -38,7 +35,6 @@ public class NoteDaoImpl extends JdbcDaoSupport implements NoteDao {
 	
 	@Override
 	public void insert(Note note) {
-		logger.info("Adding note " + note);
 		String sql = "INSERT INTO notes " +
 				"(NOTE_ID, CUST_ID, DATE, TIME, TEXT) VALUES (?, ?, ?, ?, ?)" ;
 
@@ -64,7 +60,6 @@ public class NoteDaoImpl extends JdbcDaoSupport implements NoteDao {
 //	}
 
 	public List<Note> loadAllNotes(){
-		logger.info("Query all notes");
 		String sql = "SELECT * FROM notes";
 		List<Map<String, Object>> rows = getJdbcTemplate().queryForList(sql);
 

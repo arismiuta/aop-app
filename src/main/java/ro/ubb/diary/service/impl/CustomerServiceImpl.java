@@ -16,14 +16,10 @@ import ro.ubb.diary.service.CustomerService;
 public class CustomerServiceImpl implements CustomerService{
 
 
-	Logger logger = LoggerFactory.getLogger(CustomerServiceImpl.class);
-
 	@Autowired CustomerDao customerDao;
 	
 	@Override
 	public void insert(Customer cus) {
-
-		logger.info("Calling insert on customerDao");
 		customerDao.insert(cus);
 	}
 	
@@ -33,7 +29,6 @@ public class CustomerServiceImpl implements CustomerService{
 	}	
 	
 	public List<Customer> loadAllCustomer(){
-		logger.info("Calling loadAllCustomers on noteDao");
 		List<Customer> listCust = customerDao.loadAllCustomer();
 		return listCust;
 	}

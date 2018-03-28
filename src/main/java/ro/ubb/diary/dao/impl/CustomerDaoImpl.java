@@ -29,8 +29,6 @@ public class CustomerDaoImpl extends JdbcDaoSupport implements CustomerDao{
 	DataSource dataSource;
 
 
-	Logger logger = LoggerFactory.getLogger(CustomerDaoImpl.class);
-
 
 	@PostConstruct
 	private void initialize(){
@@ -39,7 +37,6 @@ public class CustomerDaoImpl extends JdbcDaoSupport implements CustomerDao{
 	
 	@Override
 	public void insert(Customer cus) {
-		logger.info("Inserting " + cus.toString());
 		String sql = "INSERT INTO customers " +
 				"(CUST_ID, NAME, AGE) VALUES (?, ?, ?)" ;
 		getJdbcTemplate().update(sql, new Object[]{
@@ -66,7 +63,6 @@ public class CustomerDaoImpl extends JdbcDaoSupport implements CustomerDao{
 	}
 	
 	public List<Customer> loadAllCustomer(){
-		logger.info("Query all customers");
 		String sql = "SELECT * FROM customers";
 		List<Map<String, Object>> rows = getJdbcTemplate().queryForList(sql);
 		
