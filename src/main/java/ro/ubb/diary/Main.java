@@ -31,16 +31,12 @@ public class Main {
         CustomerService cusService = context.getBean(CustomerService.class);
         NoteService noteService = context.getBean(NoteService.class);
 
-        Manager manager = new Manager(2, "Admin");
-        Manager manager2 = new Manager(3, "Mod");
-
-        noteService.register(manager);
-        noteService.register(manager2);
 
         Present.initConsole();
 
         Console console = new Console(cusService, noteService);
         console.run();
 
-	}
+        Manager manager = new Manager(noteService);
+    }
 }

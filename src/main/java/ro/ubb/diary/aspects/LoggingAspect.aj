@@ -11,7 +11,6 @@ import java.util.logging.Logger;
 
 public aspect LoggingAspect {
 
-
     private static final Logger logger = Logger.getLogger(LoggingAspect.class.getName());
 
     pointcut logPoint():
@@ -24,11 +23,10 @@ public aspect LoggingAspect {
 
     before(): logPoint() {
         logger.log(Level.INFO, "Entering {0}", thisJoinPoint.getSignature().toShortString());
-//        logger.info("Entering " + thisJoinPoint.getSignature().toShortString());
     }
 
     after(): logPoint() {
         logger.log(Level.INFO, "Exiting {0}", thisJoinPoint.getSignature().toShortString());
-//        logger.info("Exiting " + thisJoinPoint.getSignature().toShortString());
     }
+
 }
