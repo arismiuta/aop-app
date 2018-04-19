@@ -3,7 +3,6 @@ package ro.ubb.diary;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ApplicationContext;
@@ -32,14 +31,12 @@ public class Main {
         CustomerService cusService = context.getBean(CustomerService.class);
         NoteService noteService = context.getBean(NoteService.class);
 
-        Manager manager = new Manager(2, "Admin");
-
-        noteService.register(manager);
 
         Present.initConsole();
 
         Console console = new Console(cusService, noteService);
         console.run();
 
-	}
+        Manager manager = new Manager(noteService);
+    }
 }

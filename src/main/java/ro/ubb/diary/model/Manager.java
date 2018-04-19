@@ -2,25 +2,21 @@ package ro.ubb.diary.model;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import ro.ubb.diary.observer.Observer;
+import ro.ubb.diary.service.NoteService;
+import ro.ubb.diary.service.impl.NoteServiceImpl;
 
-public class Manager extends Observer {
-
-    Logger logger = LoggerFactory.getLogger(Manager.class);
+public class Manager
+{
+    NoteService noteService;
 
     int id;
     String name;
 
-    public Manager() {}
-
-    public Manager(int id, String name) {
-        this.id = id;
-        this.name = name;
+    public Manager(NoteService noteService) {
+        this.noteService = noteService;
+        this.id = 10;
+        this.name = "Dorin";
     }
 
-    @Override
-    public void update() {
-        logger.info("Observer " + name + " received update.");
-    }
 
 }

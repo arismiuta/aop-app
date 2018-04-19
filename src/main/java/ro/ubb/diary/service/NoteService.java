@@ -9,5 +9,5 @@ import java.util.List;
 public interface NoteService {
 	void insert(Note note);
 	List<Note> loadAllNotes();
-	void register(Observer obs);
+	//void register(Observer obs);
 }
