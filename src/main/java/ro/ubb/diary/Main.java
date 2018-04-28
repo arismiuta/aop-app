@@ -34,9 +34,9 @@ public class Main {
 
         Present.initConsole();
 
+        Manager manager = new Manager(noteService);
+
         Console console = new Console(cusService, noteService);
         console.run();
-
-        Manager manager = new Manager(noteService);
     }
 }
